@@ -1,0 +1,52 @@
+# Python environments and bytecode
+venv/
+.venv/
+env/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local vector database and model caches
+vector_db/
+.cache/
+.deepeval/
+evaluation/
+huggingface/
+.huggingface/
+
+# Node.js and React build output
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+*.tsbuildinfo
+
+# Generated reports and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+*_validation*.txt
+*_utf8*.txt
+*k*_validation*.txt
+*validation_report*
+*test_report*
+*evaluation_report*
+login*.txt
+security*.txt
+coverage.xml
+.coverage.*
+
+# IDE and editor files
+.vscode/
+.idea/
+*.code-workspace

@@ -1,0 +1,41 @@
+:root {
+  font-family: Inter, Segoe UI, Arial, sans-serif;
+  color: #172033;
+  background: #f4f6fb;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 32px 0 64px; }
+header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+h1, h2, p { margin-top: 0; }
+.eyebrow { color: #6656d9; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+.stats article, .panel { border: 1px solid #e2e6ef; border-radius: 12px; background: white; }
+.stats article { padding: 16px; }
+.stats article span { display: block; color: #69738a; font-size: 13px; }
+.stats article strong { display: block; margin-top: 5px; font-size: 24px; }
+.panel { margin-top: 16px; padding: 18px; }
+.panel h2 { font-size: 17px; }
+.source-row { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 12px; padding: 9px 0; border-top: 1px solid #edf0f5; }
+.query-panel form { display: grid; grid-template-columns: 1fr auto; gap: 10px; }
+textarea { resize: vertical; border: 1px solid #ccd3e1; border-radius: 9px; padding: 12px; font: inherit; }
+button { border: 0; border-radius: 9px; padding: 11px 16px; background: #6656d9; color: white; font-weight: 700; cursor: pointer; }
+button:disabled { opacity: 0.55; cursor: wait; }
+.ingest-button { background: #172033; }
+.candidate { border-top: 1px solid #edf0f5; padding: 14px 0; }
+.candidate-head { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.candidate-head span { color: #6656d9; font-size: 12px; }
+.metadata { margin: 8px 0; color: #69738a; font-size: 12px; word-break: break-word; }
+.candidate p { margin-bottom: 0; white-space: pre-wrap; line-height: 1.5; }
+.answer { border-left: 4px solid #6656d9; }
+.answer > p:last-child { margin-bottom: 0; white-space: pre-wrap; line-height: 1.55; }
+.error { border-radius: 8px; margin-bottom: 16px; padding: 12px; background: #ffeaea; color: #8d1c1c; }
+.muted { color: #69738a; }
+
+@media (max-width: 700px) {
+  header { align-items: flex-start; gap: 16px; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .source-row { grid-template-columns: 1fr; }
+  .query-panel form { grid-template-columns: 1fr; }
+}

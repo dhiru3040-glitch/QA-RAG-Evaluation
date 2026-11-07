@@ -1,0 +1,10 @@
+﻿
+chromadb
+fastapi
+ollama
+pandas
+pydantic
+pypdf
+python-multipart
+sentence-transformers
+uvicorn[standard]
