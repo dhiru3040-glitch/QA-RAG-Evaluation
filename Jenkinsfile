@@ -73,14 +73,10 @@ pipeline {
             steps {
                 bat '''
                     call .venv-ci\\Scripts\\activate.bat
-                    python -c "import chromadb; c=chromadb.PersistentClient(path='vector_db'); import sys; exec(\"try:\\n col=c.get_collection('qa_knowledge_base')\\n raise SystemExit(0 if col.count()>0 else 2)\\nexcept Exception:\\n raise SystemExit(2)\")"
-                    if errorlevel 2 (
+                    python -c "import chromadb, sys; client=chromadb.PersistentClient(path='vector_db'); names=[c.name for c in client.list_collections()]; print('ChromaDB collections:', names); sys.exit(0 if 'qa_knowledge_base' in names else 1)"
+                    if errorlevel 1 (
                         python -m rag.vector_store
                         if errorlevel 1 exit /b 1
-                    )
-                    if errorlevel 1 (
-                        echo ERROR: Unable to inspect the existing ChromaDB collection.
-                        exit /b 1
                     )
                     echo Knowledge base collection is available for RAG evaluation.
                 '''
