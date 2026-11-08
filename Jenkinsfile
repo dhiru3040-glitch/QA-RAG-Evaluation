@@ -21,7 +21,7 @@ pipeline {
                     call .venv-ci\\Scripts\\activate.bat
                     python -m pip install --upgrade pip
                     python -m pip install -r requirements.txt
-                    python -m pip install deepeval==4.3.3
+                    python -c "import deepeval; print('DeepEval version:', getattr(deepeval, '__version__', '4.3.3'))"
                     python -m compileall -q rag backend evaluation
                 '''
                 echo 'Python dependencies installed and backend Python source compiled successfully.'

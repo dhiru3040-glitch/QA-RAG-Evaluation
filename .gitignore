@@ -17,7 +17,9 @@ htmlcov/
 vector_db/
 .cache/
 .deepeval/
-evaluation/
+evaluation/reports/
+evaluation/__pycache__/
+evaluation/**/__pycache__/
 huggingface/
 .huggingface/
 
