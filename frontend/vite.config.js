@@ -9,6 +9,7 @@ export default defineConfig({
       "/knowledge-base": "http://127.0.0.1:8000",
       "/ingest": "http://127.0.0.1:8000",
       "/query": "http://127.0.0.1:8000",
+      "/evaluation": "http://127.0.0.1:8000",
     },
   },
 });

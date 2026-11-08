@@ -6,7 +6,7 @@ import ollama
 MODEL_NAME = "llama3.2:3b"
 
 
-def generate_answer(question, retrieved_documents):
+def generate_answer(question, retrieved_documents, include_usage=False):
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
 
@@ -62,4 +62,21 @@ Answer:
         }
     )
 
-    return response["message"]["content"]
+    answer = response["message"]["content"]
+    if include_usage:
+        input_tokens = getattr(response, "prompt_eval_count", None)
+        output_tokens = getattr(response, "eval_count", None)
+        if input_tokens is None and isinstance(response, dict):
+            input_tokens = response.get("prompt_eval_count")
+        if output_tokens is None and isinstance(response, dict):
+            output_tokens = response.get("eval_count")
+        usage = {
+            "input_tokens": input_tokens,
+            "output_tokens": output_tokens,
+            "total_tokens": None,
+            "source": "ollama_response",
+        }
+        if usage["input_tokens"] is not None and usage["output_tokens"] is not None:
+            usage["total_tokens"] = usage["input_tokens"] + usage["output_tokens"]
+        return answer, usage
+    return answer

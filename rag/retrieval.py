@@ -146,7 +146,7 @@ def retrieve_documents(question, candidate_k=20, merged_k=40, top_k=4):
     }
 
 
-def query_documents(question, candidate_k=20, merged_k=40, top_k=4):
+def query_documents(question, candidate_k=20, merged_k=40, top_k=4, include_usage=False):
     """Run retrieval and answer generation and return structured API/CLI data."""
     retrieval_results = retrieve_documents(
         question=question,
@@ -155,9 +155,14 @@ def query_documents(question, candidate_k=20, merged_k=40, top_k=4):
         top_k=top_k
     )
     reranked_documents = retrieval_results["reranked_candidates"]
-    answer = generate_answer(question, reranked_documents)
+    if include_usage:
+        answer, generation_usage = generate_answer(
+            question, reranked_documents, include_usage=True
+        )
+    else:
+        answer = generate_answer(question, reranked_documents)
 
-    return {
+    result = {
         "question": question,
         "answer": answer,
         "vector_candidates": retrieval_results["vector_candidates"],
@@ -165,6 +170,9 @@ def query_documents(question, candidate_k=20, merged_k=40, top_k=4):
         "merged_candidates": retrieval_results["merged_candidates"],
         "reranked_candidates": reranked_documents
     }
+    if include_usage:
+        result["generation_usage"] = generation_usage
+    return result
 
 
 def ask_question(question):
