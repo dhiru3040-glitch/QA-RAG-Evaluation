@@ -1,0 +1,93 @@
+
+[
+  {
+    "id": "GQ-001",
+    "category": "functional_correctness",
+    "input": "What URL does the application redirect to when a user opens app.vwo.com?",
+    "expected_output": "The application redirects the user to https://app.vwo.com/#/login.",
+    "expected_retrieval_context": [
+      "TC-LGN-001 specifies that navigating to https://app.vwo.com/ redirects the user to https://app.vwo.com/#/login."
+    ]
+  },
+  {
+    "id": "GQ-002",
+    "category": "hallucination_resistance",
+    "input": "What validation message should appear when a user enters an incorrect password?",
+    "expected_output": "The documentation does not specify the required validation behavior or exact error message for an incorrect password.",
+    "expected_retrieval_context": [
+      "TC-LGN-004 covers login with an incorrect password, but the exact validation behavior and error response are not specified."
+    ]
+  },
+  {
+    "id": "GQ-003",
+    "category": "hallucination_resistance",
+    "input": "What should happen when an unregistered email address is used to log in?",
+    "expected_output": "The documentation does not specify the exact validation behavior or error response for an unregistered email address.",
+    "expected_retrieval_context": [
+      "TC-LGN-003 covers login using an unregistered email address, but the exact validation behavior and error response are not specified."
+    ]
+  },
+  {
+    "id": "GQ-004",
+    "category": "functional_correctness",
+    "input": "What does the PRD specify about logging authentication activity?",
+    "expected_output": "The PRD requires activity logging under its Security requirements. However, the exact log fields and logging interface are not defined.",
+    "expected_retrieval_context": [
+      "The PRD Security requirements include activity logging. TC-LGN-013 covers login activity logs, but the exact fields and interface are not defined."
+    ]
+  },
+  {
+    "id": "GQ-005",
+    "category": "hallucination_resistance",
+    "input": "What validation behavior is expected when a user enters an incorrect two-factor authentication code?",
+    "expected_output": "The documentation does not specify the exact validation behavior or error message for an incorrect two-factor authentication code.",
+    "expected_retrieval_context": [
+      "TC-LGN-007 covers an incorrect 2FA code. The exact validation behavior is not specified, although 2FA is traceable to the PRD Security requirement."
+    ]
+  },
+  {
+    "id": "GQ-006",
+    "category": "query_robustness",
+    "input": "what url open when app vwo",
+    "expected_output": "The application redirects the user to https://app.vwo.com/#/login.",
+    "expected_retrieval_context": [
+      "TC-LGN-001 specifies that navigating to https://app.vwo.com/ redirects the user to https://app.vwo.com/#/login."
+    ]
+  },
+  {
+    "id": "GQ-007",
+    "category": "query_robustness",
+    "input": "incorrect password msg?",
+    "expected_output": "The documentation does not specify the required validation behavior or exact error message for an incorrect password.",
+    "expected_retrieval_context": [
+      "TC-LGN-004 covers login with an incorrect password, but the exact validation behavior and error response are not specified."
+    ]
+  },
+  {
+    "id": "GQ-008",
+    "category": "query_robustness",
+    "input": "unregistered email login",
+    "expected_output": "The documentation does not specify the exact validation behavior or error response for an unregistered email address.",
+    "expected_retrieval_context": [
+      "TC-LGN-003 covers login using an unregistered email address, but the exact validation behavior and error response are not specified."
+    ]
+  },
+  {
+    "id": "GQ-009",
+    "category": "query_robustness",
+    "input": "what about 2fa wrong code",
+    "expected_output": "The documentation does not specify the exact validation behavior or error message for an incorrect two-factor authentication code.",
+    "expected_retrieval_context": [
+      "TC-LGN-007 covers an incorrect 2FA code. The exact validation behavior is not specified, although 2FA is traceable to the PRD Security requirement."
+    ]
+  },
+  {
+    "id": "GQ-010",
+    "category": "query_robustness",
+    "input": "login activity logs?",
+    "expected_output": "The PRD requires activity logging under its Security requirements. However, the exact log fields and logging interface are not defined.",
+    "expected_retrieval_context": [
+      "The PRD Security requirements include activity logging. TC-LGN-013 covers login activity logs, but the exact fields and interface are not defined."
+    ]
+  }
+]
